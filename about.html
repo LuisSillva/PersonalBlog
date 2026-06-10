@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Blog - Sobre Mim</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Meu Blog <span>— Tecnologia & Vida</span></h1>
+    <div class="controles">
+      <button onclick="diminuirFonte()">A-</button>
+      <button onclick="aumentarFonte()">A+</button>
+      <button id="btn-dark" onclick="alternarDarkMode()">🌙 Escuro</button>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="ativo">Sobre Mim</a></li>
+      <li><a href="curriculum.html">Currículo</a></li>
+      <li><a href="contact.html">Contato</a></li>
+      <li><a href="receitas.html">Receitas</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Sobre Mim</h2>
+
+      <!-- Foto + texto lado a lado -->
+      <div class="sobre-conteudo">
+
+        <!-- Substitua por uma imagem real na pasta /assets -->
+        <img src="assets/foto.jpg" alt="Minha foto" onerror="this.src='https://placehold.co/180x180/2e7d32/white?text=Foto'">
+
+        <div>
+          <p>
+            Olá! Meu nome é <strong>Luís Silva</strong> e sou estudante do curso de
+            <strong>Ciência da Computação</strong> na Universidade de Passo Fundo (UPF).
+            Estou no primeiro semestre, mas estudo programação desde o ensino fundamental!
+          </p>
+          <p>
+            Desde criança sempre tive curiosidade por como as coisas funcionam — e quando
+            descobri programação, descobri o que eu queria seguir pra vida. Cada desafio novo é
+            uma oportunidade de aprender algo diferente.
+          </p>
+          <p>
+            Fora da faculdade, gosto de tocar guitarra, ouvir música, jogar no PC, ler, e ir para a academia. Acredito que a criatividade e a lógica andam
+            sempre juntas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Meus Interesses</h2>
+      <p>
+        Atualmente estou estudando <strong>FastAPI, Cybersecurity(como Json web Tokens, auth e authorization)</strong>. Tenho interesse
+        em desenvolvimento Backend e quero, no futuro, desenvolver mais projetos Fullstack grandes.
+        Também me interesso por inteligência artificial e como ela pode(e está) mudar o mundo da tecnologia.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Meu Blog — Desenvolvido para Web Lab | UPF</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>

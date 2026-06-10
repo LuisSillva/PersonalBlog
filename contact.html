@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Blog - Contato</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Meu Blog <span>— Tecnologia & Vida</span></h1>
+    <div class="controles">
+      <button onclick="diminuirFonte()">A-</button>
+      <button onclick="aumentarFonte()">A+</button>
+      <button id="btn-dark" onclick="alternarDarkMode()">🌙 Escuro</button>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">Sobre Mim</a></li>
+      <li><a href="curriculum.html">Currículo</a></li>
+      <li><a href="contact.html" class="ativo">Contato</a></li>
+      <li><a href="receitas.html">Receitas</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Entre em Contato</h2>
+      <p>Preencha o formulário abaixo e entrarei em contato em breve!</p>
+
+      <!-- Mensagem de sucesso (fica oculta até o formulário ser enviado) -->
+      <div id="msg-sucesso" class="msg-sucesso">
+        ✅ Mensagem enviada com sucesso! Responderei em breve.
+      </div>
+
+      <!-- Formulário de Contato -->
+      <form id="form-contato">
+
+        <div>
+          <label for="nome">Nome completo *</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome">
+        </div>
+
+        <div>
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com">
+        </div>
+
+        <div>
+          <label for="assunto">Assunto *</label>
+          <input type="text" id="assunto" name="assunto" placeholder="Sobre o que você quer falar?">
+        </div>
+
+        <div>
+          <label for="mensagem">Mensagem *</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
+        </div>
+
+        <button type="submit">Enviar Mensagem</button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Meu Blog — Desenvolvido para Web Lab | UPF</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>

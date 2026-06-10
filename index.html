@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Blog - Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <h1>Meu Blog <span>— Tecnologia & Vida</span></h1>
+    <div class="controles">
+      <button onclick="diminuirFonte()">A-</button>
+      <button onclick="aumentarFonte()">A+</button>
+      <button id="btn-dark" onclick="alternarDarkMode()">🌙 Escuro</button>
+    </div>
+  </header>
+
+  <!-- MENU DE NAVEGAÇÃO -->
+  <nav>
+    <ul>
+      <li><a href="index.html" class="ativo">Home</a></li>
+      <li><a href="about.html">Sobre Mim</a></li>
+      <li><a href="curriculum.html">Currículo</a></li>
+      <li><a href="contact.html">Contato</a></li>
+      <li><a href="receitas.html">Receitas</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+
+    <!-- Apresentação -->
+    <section>
+      <h2>Bem-vindo ao meu Blog!</h2>
+      <p>
+        Olá! Este é meu espaço pessoal onde compartilho minhas experiências na faculdade,
+        meus interesses em tecnologia e muito mais. Fique à vontade para explorar as páginas!
+      </p>
+    </section>
+
+    <!-- Últimas Postagens -->
+    <section>
+      <h2>Últimas Postagens</h2>
+      <div class="posts">
+
+        <div class="card">
+          <h3>Minha primeira semana na UPF</h3>
+          <p>Como foi a experiência de entrar na universidade, conhecer colegas e encarar as primeiras aulas de programação...</p>
+          <p class="data">📅 10 de junho de 2026</p>
+        </div>
+
+        <div class="card">
+          <h3>O que aprendi sobre HTML5</h3>
+          <p>Tags semânticas, estrutura de uma página e por que organizar o código desde o começo faz toda a diferença...</p>
+          <p class="data">📅 5 de junho de 2026</p>
+        </div>
+
+        <div class="card">
+          <h3>CSS Grid vs Flexbox</h3>
+          <p>Quando usar cada um? Entendendo as diferenças e como escolher a ferramenta certa para cada layout...</p>
+          <p class="data">📅 1 de junho de 2026</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>© 2026 Meu Blog — Desenvolvido para Web Lab | UPF</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
