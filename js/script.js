@@ -1,121 +1,116 @@
-// ===== DARK MODE =====
+//  MODO ESCURO 
 function alternarDarkMode() {
   document.body.classList.toggle('dark');
 
-  // Salva a preferência no navegador
   if (document.body.classList.contains('dark')) {
     localStorage.setItem('tema', 'dark');
-    document.getElementById('btn-dark').textContent = '☀️ Claro';
+    document.getElementById('btn-dark').textContent = 'Claro';
   } else {
     localStorage.setItem('tema', 'claro');
-    document.getElementById('btn-dark').textContent = '🌙 Escuro';
+    document.getElementById('btn-dark').textContent = 'Escuro';
   }
 }
 
-// ===== TAMANHO DA FONTE =====
-let tamanhoFonte = 16; // tamanho padrão em pixels
+//  TAMANHO DA FONTE 
+var tamanhoFonte = 16;
 
 function aumentarFonte() {
-  if (tamanhoFonte < 24) {
-    tamanhoFonte += 2;
+  if (tamanhoFonte < 22) {
+    tamanhoFonte = tamanhoFonte + 2;
     document.body.style.fontSize = tamanhoFonte + 'px';
   }
 }
 
 function diminuirFonte() {
   if (tamanhoFonte > 12) {
-    tamanhoFonte -= 2;
+    tamanhoFonte = tamanhoFonte - 2;
     document.body.style.fontSize = tamanhoFonte + 'px';
   }
 }
 
-// ===== VALIDAÇÃO DO FORMULÁRIO DE CONTATO =====
-function validarFormulario(evento) {
-  // Evita o formulário de recarregar a página
+//  VALIDAÇÃO DO FORMULÁRIO DE CONTATO 
+function validarForm(evento) {
   evento.preventDefault();
 
-  // Limpa erros anteriores
-  limparErros();
+  // Pega os campos do formulário
+  var nome = document.getElementById('nome');
+  var email = document.getElementById('email');
+  var assunto = document.getElementById('assunto');
+  var mensagem = document.getElementById('mensagem');
 
-  let valido = true;
+  // Limpa mensagens de erro antigas
+  var erros = document.querySelectorAll('.msg-erro');
+  for (var i = 0; i < erros.length; i++) {
+    erros[i].remove();
+  }
 
-  // Pega os campos
-  const nome = document.getElementById('nome');
-  const email = document.getElementById('email');
-  const assunto = document.getElementById('assunto');
-  const mensagem = document.getElementById('mensagem');
+  // Remove a borda vermelha de erro
+  nome.classList.remove('campo-erro');
+  email.classList.remove('campo-erro');
+  assunto.classList.remove('campo-erro');
+  mensagem.classList.remove('campo-erro');
 
-  // Valida Nome
+  document.getElementById('msg-sucesso').style.display = 'none';
+
+  var formularioValido = true;
+
+  // Verifica o nome
   if (nome.value.trim() === '') {
-    mostrarErro(nome, 'Por favor, informe seu nome.');
-    valido = false;
+    mostrarErro(nome, 'Informe seu nome.');
+    formularioValido = false;
   }
 
-  // Valida Email
+  // Verifica o email
   if (email.value.trim() === '') {
-    mostrarErro(email, 'Por favor, informe seu e-mail.');
-    valido = false;
-  } else if (!email.value.includes('@') || !email.value.includes('.')) {
-    mostrarErro(email, 'Por favor, informe um e-mail válido.');
-    valido = false;
+    mostrarErro(email, 'Informe seu e-mail.');
+    formularioValido = false;
+  } else if (email.value.includes('@') === false || email.value.includes('.') === false) {
+    mostrarErro(email, 'Informe um e-mail válido.');
+    formularioValido = false;
   }
 
-  // Valida Assunto
+  // Verifica o assunto
   if (assunto.value.trim() === '') {
-    mostrarErro(assunto, 'Por favor, informe o assunto.');
-    valido = false;
+    mostrarErro(assunto, 'Informe o assunto.');
+    formularioValido = false;
   }
 
-  // Valida Mensagem
+  // Verifica a mensagem
   if (mensagem.value.trim() === '') {
-    mostrarErro(mensagem, 'Por favor, escreva sua mensagem.');
-    valido = false;
-  } else if (mensagem.value.trim().length < 10) {
-    mostrarErro(mensagem, 'A mensagem deve ter pelo menos 10 caracteres.');
-    valido = false;
+    mostrarErro(mensagem, 'Escreva sua mensagem.');
+    formularioValido = false;
   }
 
-  // Se tudo estiver válido, mostra mensagem de sucesso
-  if (valido) {
+  // Se tudo estiver certo, mostra a mensagem de sucesso
+  if (formularioValido === true) {
     document.getElementById('msg-sucesso').style.display = 'block';
     document.getElementById('form-contato').reset();
   }
 }
 
-// Função auxiliar: mostra erro em um campo
+// Função que mostra a mensagem de erro embaixo do campo
 function mostrarErro(campo, texto) {
   campo.classList.add('campo-erro');
-  const erro = document.createElement('span');
-  erro.className = 'msg-erro';
-  erro.textContent = texto;
-  campo.parentNode.appendChild(erro);
+
+  var spanErro = document.createElement('span');
+  spanErro.className = 'msg-erro';
+  spanErro.textContent = texto;
+
+  campo.parentNode.appendChild(spanErro);
 }
 
-// Função auxiliar: limpa todos os erros
-function limparErros() {
-  document.querySelectorAll('.campo-erro').forEach(function(campo) {
-    campo.classList.remove('campo-erro');
-  });
-  document.querySelectorAll('.msg-erro').forEach(function(msg) {
-    msg.remove();
-  });
-  const sucesso = document.getElementById('msg-sucesso');
-  if (sucesso) sucesso.style.display = 'none';
-}
+// QUANDO A PÁGINA CARREGA 
+window.addEventListener('load', function () {
 
-// ===== CARREGA PREFERÊNCIAS AO ABRIR A PÁGINA =====
-window.addEventListener('load', function() {
-  // Restaura o tema salvo
-  const temaSalvo = localStorage.getItem('tema');
-  if (temaSalvo === 'dark') {
+  // Verifica se o tema escuro estava salvo
+  if (localStorage.getItem('tema') === 'dark') {
     document.body.classList.add('dark');
-    const btnDark = document.getElementById('btn-dark');
-    if (btnDark) btnDark.textContent = '☀️ Claro';
+    document.getElementById('btn-dark').textContent = 'Claro';
   }
 
-  // Liga a validação do formulário (só na página de contato)
-  const form = document.getElementById('form-contato');
-  if (form) {
-    form.addEventListener('submit', validarFormulario);
+  // Ativa a validação do formulário (se a página tiver formulário)
+  var form = document.getElementById('form-contato');
+  if (form != null) {
+    form.addEventListener('submit', validarForm);
   }
 });
